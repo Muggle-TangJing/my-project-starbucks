@@ -1,0 +1,43 @@
+
+<div ng-include="'tpl/include/header.html'"></div>
+
+<audio id="bgMusic" src="res/Flower Dance.mp3" autoplay loop></audio>
+
+<div class="container cnt">
+
+    <div class="list-group">
+        <ul class="list-group-item">
+            <li class="media" ng-repeat="person in personList">
+
+                <div class="media-body">
+                    <p>{{person.uname}}</p>
+                    <p>{{person.content}}</p>
+                    <p>{{person.pubTime| date:'short'}}</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+    <button
+            ng-show="hasMore"
+            ng-click="loadMore()"
+            class="btn btn-block btn-success">加载更多</button>
+
+    <p ng-hide="hasMore" id="nomore" class="text-center">没有更多数据可以加载啦!!!!</p>
+
+    <div class="form-group">
+
+        <label for="uname" >起个名吧</label>
+        <input type="text" id="uname" ng-model="uname" class="form-control"/>
+        <label for="content">说点什么</label>
+        <textarea id="content" ng-model="content" cols="30" rows="10" class="form-control"></textarea>
+
+        <button class="btn btn-block btn-primary addcontent" ng-click="add()">添加留言</button>
+    </div>
+
+
+
+</div>
+
+
+<div ng-include="'tpl/include/footer.html'"></div>
